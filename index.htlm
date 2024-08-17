@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for Mai Nhè</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <div id="container">
+        <div id="message">Bất ngờ dành cho Mai Nhè</div>
+        <div id="wordDisplay"></div>
+        <button id="animatedButton" onclick="showNextWord()">Click for a Surprise</button>
+        <div id="reveal">
+            <img id="surpriseImage" src="flower.jpg" alt="Surprise Image"> <!-- Path to the final surprise image -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle word-by-word display and reveal the surprise image
+        const words = ["em", "dành", "tặng", "cái", "web", "này", "cho", "chị", "để", "nói", "rằng", "là", "cảm", "ơn", "vì", "1", "tháng", "qua", "chị", "đã", "bên", "em"];
+        let wordIndex = 0;
+
+        function showNextWord() {
+            const wordDisplay = document.getElementById("wordDisplay");
+            const button = document.getElementById("animatedButton");
+
+            if (wordIndex < words.length) {
+                wordDisplay.innerHTML = words[wordIndex];
+                wordIndex++;
+            } else {
+                // When all words are shown, reveal the final message and image
+                document.getElementById('message').innerText = 'Cảm ơn Chị vì đã bên em';
+                document.getElementById('reveal').style.display = 'block';
+                button.style.display = 'none'; // Hide the button after the final word
+            }
+        }
+    </script>
+</body>
+</html>
